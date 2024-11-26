@@ -5,9 +5,8 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Page | Free Next.js Template for Startup and SaaS",
-  description: "This is About Page for Startup Nextjs Template",
-  // other metadata
+  title: "About Levify Solutions | Your Partner in Success",
+  description: "Discover how Levify Solutions empowers businesses with innovative branding, marketing, and web development solutions.",
 };
 
 const AboutPage = () => {
@@ -15,7 +14,7 @@ const AboutPage = () => {
     <>
       <Breadcrumb
         pageName="About Page"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        description="Levify Solution drives success with branding, marketing, web development, and automation."
       />
       <AboutSectionOne />
       <AboutSectionTwo />
