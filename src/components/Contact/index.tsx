@@ -1,81 +1,115 @@
-import NewsLatterBox from "./NewsLatterBox";
+"use client";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [status, setStatus] = useState({
+    loading: false,
+    error: "",
+    success: ""
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ loading: true, error: "", success: "" });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setStatus({
+        loading: false,
+        error: "",
+        success: "Message sent successfully!"
+      });
+      setFormData({ name: "", email: "", message: "" });
+
+    } catch (error) {
+      setStatus({
+        loading: false,
+        error: "Failed to send message. Please try again.",
+        success: ""
+      });
+    }
+  };
+
   return (
-    <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
+    <section className="relative z-10 overflow-hidden py-20 lg:py-[120px]">
       <div className="container">
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
-            <div
-              className="mb-12 rounded-sm bg-white px-8 py-11 shadow-three dark:bg-gray-dark sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]"
-              data-wow-delay=".15s
-              "
-            >
-              <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
-                Need Help? Contact us
+        <div className="flex flex-wrap -mx-4 lg:justify-between">
+          <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
+            <div className="mb-12 max-w-[570px] lg:mb-0">
+              <h2 className="mb-6 text-[32px] font-bold  text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
+                Get in Touch with 
               </h2>
-              <p className="mb-12 text-base font-medium text-body-color">
-                Our support team will get back to you ASAP via email.
+              <p className="text-base leading-relaxed mb-9 text-body-color dark:text-dark-6">
+                Let's discuss how we can help your business grow. Reach out to us for expert solutions in branding, marketing, and development.
               </p>
-              <form>
-                <div className="-mx-4 flex flex-wrap">
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="name"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Name
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter your name"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="email"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Email
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="message"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Message
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={5}
-                        placeholder="Enter your Message"
-                        className="border-stroke w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div className="w-full px-4">
-                    <button className="rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </form>
+              {/* Add contact information here if needed */}
             </div>
           </div>
-          <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
-          
+          <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
+            <div className="relative rounded-lg bg-white dark:bg-dark p-8 shadow-lg sm:p-12">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-6">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
+                    required
+                  />
+                </div>
+                <div className="mb-6">
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
+                    required
+                  />
+                </div>
+                <div className="mb-6">
+                  <textarea
+                    placeholder="Your Message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6 h-40 resize-none"
+                    required
+                  />
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    disabled={status.loading}
+                    className="w-full rounded border border-primary bg-primary p-3 text-white transition hover:bg-opacity-90 disabled:opacity-50"
+                  >
+                    {status.loading ? "Sending..." : "Send Message"}
+                  </button>
+                </div>
+                {status.error && (
+                  <p className="mt-4 text-red-500">{status.error}</p>
+                )}
+                {status.success && (
+                  <p className="mt-4 text-green-500">{status.success}</p>
+                )}
+              </form>
+            </div>
           </div>
         </div>
       </div>

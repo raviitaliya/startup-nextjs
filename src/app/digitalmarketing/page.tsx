@@ -1,35 +1,35 @@
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Image from "next/image";
 import { Metadata } from "next";
-import { FaPalette, FaLightbulb, FaGlobe, FaChartLine, FaSearch, FaBullseye, FaPencilAlt, FaRocket } from "react-icons/fa";
+import { FaSearch, FaHashtag, FaAd, FaPencilAlt, FaChartLine, FaLightbulb, FaRocket, FaChartBar } from "react-icons/fa";
 
 export const metadata: Metadata = {
-  title: "Strategic Branding Services | Levify Solutions",
-  description: "Elevate your business with Levify Solutions' professional branding services. We create distinctive brand identities that drive growth and customer engagement.",
+  title: "Digital Marketing Services | Levify Solutions",
+  description: "Boost your online presence with Levify Solutions' data-driven digital marketing services. We help businesses grow through SEO, social media, PPC, and content marketing.",
 };
 
-const Branding = () => {
+const DigitalMarketing = () => {
   return (
     <>
       <Breadcrumb
-        pageName="Strategic Branding Solutions"
-        description="Partner with Levify Solutions to build a powerful brand that drives business growth and creates lasting connections with your audience."
+        pageName="Digital Marketing Services"
+        description="Drive growth and engagement with our comprehensive digital marketing solutions tailored to your business goals."
       />
 
-      {/* Branding Services Section */}
+      {/* Digital Marketing Services Section */}
       <section className="pb-[120px] pt-[120px]">
         <div className="container">
           <div className="flex flex-wrap items-center justify-between">
             <div className="w-full px-4 lg:w-1/2">
               <div className="mb-12 lg:mb-0">
                 <h2 className="mb-8 text-3xl font-bold text-black dark:text-white sm:text-4xl">
-                  Build a Powerful Brand Identity
+                  Strategic Digital Marketing Solutions
                 </h2>
                 <p className="mb-8 text-base font-medium leading-relaxed text-body-color">
-                  At Levify Solutions, we combine strategic thinking with creative excellence to build brands that stand out. Our comprehensive branding services help businesses establish strong market presence and create meaningful connections with their target audience.
+                  At Levify Solutions, we create data-driven digital marketing strategies that help businesses reach their target audience, increase engagement, and drive conversions.
                 </p>
                 <div className="flex flex-col gap-8">
-                  {brandingServices.map((service, index) => (
+                  {marketingServices.map((service, index) => (
                     <div 
                       key={index} 
                       className="group flex items-start p-4 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg dark:hover:bg-gray-800"
@@ -52,8 +52,8 @@ const Branding = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="relative aspect-[25/24] overflow-hidden rounded-lg">
                 <Image
-                  src="/images/branding/branding-hero.jpg"
-                  alt="branding services"
+                  src="/images/marketing.jpg"
+                  alt="digital marketing services"
                   fill
                   className="object-cover object-center"
                 />
@@ -63,26 +63,26 @@ const Branding = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Marketing Strategy Process */}
       <section className="bg-gray-50 dark:bg-gray-900 pb-[120px]">
         <div className="container">
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-black dark:text-white sm:text-4xl">
-              Our Strategic Branding Approach
+              Our Marketing Approach
             </h2>
             <p className="text-base text-body-color">
-              A proven methodology that transforms businesses into memorable brands
+              A results-driven process to maximize your digital marketing ROI
             </p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {brandingProcess.map((step, index) => (
+            {marketingProcess.map((step, index) => (
               <div 
                 key={index}
-                className="rounded-lg bg-white dark:bg-gray-800 p-8 shadow-lg"
+                className="rounded-lg bg-white dark:bg-gray-800 p-8 shadow-lg text-center group hover:shadow-xl transition-all duration-300"
               >
-                <div className="mb-4 text-primary text-4xl font-bold">
-                  {(index + 1).toString().padStart(2, '0')}
+                <div className="mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                  {step.icon}
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-black dark:text-white">
                   {step.title}
@@ -103,10 +103,10 @@ const Branding = () => {
             <div className="flex flex-wrap items-center -mx-4">
               <div className="w-full px-4 lg:w-1/2">
                 <h2 className="mb-6 text-3xl font-bold text-black dark:text-white">
-                  Ready to Transform Your Brand?
+                  Ready to Grow Your Online Presence?
                 </h2>
                 <p className="mb-8 text-base text-body-color">
-                  Let's collaborate to create a distinctive brand identity that drives your business success and resonates with your target audience.
+                  Let's create a customized digital marketing strategy that helps you reach your business goals and target audience effectively.
                 </p>
                 <a
                   href="/contact"
@@ -123,52 +123,52 @@ const Branding = () => {
   );
 };
 
-// Branding Services Data
-const brandingServices = [
+// Updated Digital Marketing Services Data
+const marketingServices = [
   {
-    icon: <FaPalette className="w-8 h-8" />,
-    title: "Brand Identity Design",
-    description: "Custom logo design, visual elements, and brand assets that capture your unique business essence.",
+    icon: <FaSearch className="w-8 h-8" />,
+    title: "Search Engine Optimization (SEO)",
+    description: "Improve your website's visibility in search results with our comprehensive SEO strategies.",
   },
   {
-    icon: <FaLightbulb className="w-8 h-8" />,
-    title: "Strategic Brand Development",
-    description: "Comprehensive brand strategy, positioning, and market analysis to differentiate your business.",
+    icon: <FaHashtag className="w-8 h-8" />,
+    title: "Social Media Marketing",
+    description: "Build brand awareness and engage with your audience through strategic social media campaigns.",
   },
   {
-    icon: <FaGlobe className="w-8 h-8" />,
-    title: "Digital Brand Experience",
-    description: "Cohesive digital presence across web, social media, and other digital platforms.",
+    icon: <FaAd className="w-8 h-8" />,
+    title: "Pay-Per-Click Advertising",
+    description: "Drive targeted traffic and conversions with optimized PPC campaigns across multiple platforms.",
   },
   {
-    icon: <FaChartLine className="w-8 h-8" />,
-    title: "Brand Management",
-    description: "Ongoing brand monitoring, guidelines implementation, and consistency maintenance.",
+    icon: <FaPencilAlt className="w-8 h-8" />,
+    title: "Content Marketing",
+    description: "Create valuable content that attracts and retains your target audience while driving conversions.",
   },
 ];
 
-// Branding Process Data
-const brandingProcess = [
+// Updated Marketing Process Data
+const marketingProcess = [
   {
-    icon: <FaSearch className="w-12 h-12 text-primary mx-auto" />,
+    icon: <FaChartLine className="w-12 h-12 text-primary mx-auto" />,
     title: "Research & Analysis",
-    description: "Deep dive into your industry, competitors, target audience, and business objectives to inform our strategy.",
+    description: "Understanding your market, competitors, and target audience to develop effective strategies.",
   },
   {
-    icon: <FaBullseye className="w-12 h-12 text-primary mx-auto" />,
-    title: "Brand Strategy",
-    description: "Developing your unique value proposition, brand positioning, and comprehensive brand strategy.",
-  },
-  {
-    icon: <FaPencilAlt className="w-12 h-12 text-primary mx-auto" />,
-    title: "Creative Development",
-    description: "Creating distinctive visual elements and brand assets that align with your strategy and resonate with your audience.",
+    icon: <FaLightbulb className="w-12 h-12 text-primary mx-auto" />,
+    title: "Strategy Development",
+    description: "Creating customized marketing plans aligned with your business goals and target audience.",
   },
   {
     icon: <FaRocket className="w-12 h-12 text-primary mx-auto" />,
-    title: "Implementation & Growth",
-    description: "Launching your brand across all channels and providing ongoing support for consistent brand growth.",
+    title: "Implementation",
+    description: "Executing campaigns across chosen channels with continuous optimization for best results.",
+  },
+  {
+    icon: <FaChartBar className="w-12 h-12 text-primary mx-auto" />,
+    title: "Monitor & Optimize",
+    description: "Tracking performance metrics and making data-driven adjustments to improve ROI.",
   },
 ];
 
-export default Branding;
+export default DigitalMarketing;

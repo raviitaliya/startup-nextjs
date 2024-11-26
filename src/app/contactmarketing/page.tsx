@@ -1,35 +1,35 @@
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Image from "next/image";
 import { Metadata } from "next";
-import { FaPalette, FaLightbulb, FaGlobe, FaChartLine, FaSearch, FaBullseye, FaPencilAlt, FaRocket } from "react-icons/fa";
+import { FaPencilAlt, FaChartLine, FaSearch, FaBullhorn, FaNewspaper, FaVideo } from "react-icons/fa";
 
 export const metadata: Metadata = {
-  title: "Strategic Branding Services | Levify Solutions",
-  description: "Elevate your business with Levify Solutions' professional branding services. We create distinctive brand identities that drive growth and customer engagement.",
+  title: "Content Marketing Services | Levify Solutions",
+  description: "Drive engagement and growth with Levify Solutions' strategic content marketing services. We create compelling content that connects with your audience and delivers results.",
 };
 
-const Branding = () => {
+const ContentMarketing = () => {
   return (
     <>
       <Breadcrumb
-        pageName="Strategic Branding Solutions"
-        description="Partner with Levify Solutions to build a powerful brand that drives business growth and creates lasting connections with your audience."
+        pageName="Content Marketing Services"
+        description="Create compelling content that engages your audience and drives business growth."
       />
 
-      {/* Branding Services Section */}
+      {/* Content Marketing Services Section */}
       <section className="pb-[120px] pt-[120px]">
         <div className="container">
           <div className="flex flex-wrap items-center justify-between">
             <div className="w-full px-4 lg:w-1/2">
               <div className="mb-12 lg:mb-0">
                 <h2 className="mb-8 text-3xl font-bold text-black dark:text-white sm:text-4xl">
-                  Build a Powerful Brand Identity
+                  Strategic Content Marketing Solutions
                 </h2>
                 <p className="mb-8 text-base font-medium leading-relaxed text-body-color">
-                  At Levify Solutions, we combine strategic thinking with creative excellence to build brands that stand out. Our comprehensive branding services help businesses establish strong market presence and create meaningful connections with their target audience.
+                  We help businesses create and distribute valuable, relevant content that attracts and retains their target audience while driving profitable customer action.
                 </p>
                 <div className="flex flex-col gap-8">
-                  {brandingServices.map((service, index) => (
+                  {contentServices.map((service, index) => (
                     <div 
                       key={index} 
                       className="group flex items-start p-4 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg dark:hover:bg-gray-800"
@@ -52,8 +52,8 @@ const Branding = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="relative aspect-[25/24] overflow-hidden rounded-lg">
                 <Image
-                  src="/images/branding/branding-hero.jpg"
-                  alt="branding services"
+                  src="/images/contactmarketing.jpg"
+                  alt="content marketing services"
                   fill
                   className="object-cover object-center"
                 />
@@ -63,32 +63,32 @@ const Branding = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Content Types Section */}
       <section className="bg-gray-50 dark:bg-gray-900 pb-[120px]">
         <div className="container">
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-black dark:text-white sm:text-4xl">
-              Our Strategic Branding Approach
+              Content Types We Create
             </h2>
             <p className="text-base text-body-color">
-              A proven methodology that transforms businesses into memorable brands
+              Diverse content formats to engage your audience across all channels
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {brandingProcess.map((step, index) => (
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {contentTypes.map((type, index) => (
               <div 
                 key={index}
-                className="rounded-lg bg-white dark:bg-gray-800 p-8 shadow-lg"
+                className="rounded-lg bg-white dark:bg-gray-800 p-8 shadow-lg text-center group hover:shadow-xl transition-all duration-300"
               >
-                <div className="mb-4 text-primary text-4xl font-bold">
-                  {(index + 1).toString().padStart(2, '0')}
+                <div className="mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                  {type.icon}
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-black dark:text-white">
-                  {step.title}
+                  {type.name}
                 </h3>
                 <p className="text-body-color">
-                  {step.description}
+                  {type.description}
                 </p>
               </div>
             ))}
@@ -103,10 +103,10 @@ const Branding = () => {
             <div className="flex flex-wrap items-center -mx-4">
               <div className="w-full px-4 lg:w-1/2">
                 <h2 className="mb-6 text-3xl font-bold text-black dark:text-white">
-                  Ready to Transform Your Brand?
+                  Ready to Create Engaging Content?
                 </h2>
                 <p className="mb-8 text-base text-body-color">
-                  Let's collaborate to create a distinctive brand identity that drives your business success and resonates with your target audience.
+                  Let's develop a content strategy that helps you connect with your audience and achieve your business goals.
                 </p>
                 <a
                   href="/contact"
@@ -123,52 +123,43 @@ const Branding = () => {
   );
 };
 
-// Branding Services Data
-const brandingServices = [
+// Content Marketing Services Data
+const contentServices = [
   {
-    icon: <FaPalette className="w-8 h-8" />,
-    title: "Brand Identity Design",
-    description: "Custom logo design, visual elements, and brand assets that capture your unique business essence.",
+    icon: <FaPencilAlt className="w-8 h-8" />,
+    title: "Content Strategy",
+    description: "Develop comprehensive content strategies aligned with your business goals and audience needs.",
   },
   {
-    icon: <FaLightbulb className="w-8 h-8" />,
-    title: "Strategic Brand Development",
-    description: "Comprehensive brand strategy, positioning, and market analysis to differentiate your business.",
-  },
-  {
-    icon: <FaGlobe className="w-8 h-8" />,
-    title: "Digital Brand Experience",
-    description: "Cohesive digital presence across web, social media, and other digital platforms.",
+    icon: <FaSearch className="w-8 h-8" />,
+    title: "SEO Content Creation",
+    description: "Create SEO-optimized content that ranks well and drives organic traffic to your website.",
   },
   {
     icon: <FaChartLine className="w-8 h-8" />,
-    title: "Brand Management",
-    description: "Ongoing brand monitoring, guidelines implementation, and consistency maintenance.",
+    title: "Content Analytics",
+    description: "Track and analyze content performance to optimize your content marketing strategy.",
   },
+ 
 ];
 
-// Branding Process Data
-const brandingProcess = [
+// Content Types Data
+const contentTypes = [
   {
-    icon: <FaSearch className="w-12 h-12 text-primary mx-auto" />,
-    title: "Research & Analysis",
-    description: "Deep dive into your industry, competitors, target audience, and business objectives to inform our strategy.",
+    icon: <FaNewspaper className="w-12 h-12 text-primary mx-auto" />,
+    name: "Blog Posts & Articles",
+    description: "Informative and engaging written content that establishes thought leadership.",
   },
   {
-    icon: <FaBullseye className="w-12 h-12 text-primary mx-auto" />,
-    title: "Brand Strategy",
-    description: "Developing your unique value proposition, brand positioning, and comprehensive brand strategy.",
+    icon: <FaVideo className="w-12 h-12 text-primary mx-auto" />,
+    name: "Video Content",
+    description: "Engaging video content that captures attention and drives engagement.",
   },
   {
     icon: <FaPencilAlt className="w-12 h-12 text-primary mx-auto" />,
-    title: "Creative Development",
-    description: "Creating distinctive visual elements and brand assets that align with your strategy and resonate with your audience.",
-  },
-  {
-    icon: <FaRocket className="w-12 h-12 text-primary mx-auto" />,
-    title: "Implementation & Growth",
-    description: "Launching your brand across all channels and providing ongoing support for consistent brand growth.",
+    name: "Whitepapers & Guides",
+    description: "In-depth content that showcases your expertise and generates leads.",
   },
 ];
 
-export default Branding;
+export default ContentMarketing;
